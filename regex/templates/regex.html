@@ -7,8 +7,8 @@
     {{text.searchtext}}
     <h4>Modified Text:</h4><br>
     {% for i in l %}
-        {% if i == "@" %}
-            <b>{{text.searchtext}}</b>
+        {% if i == ";" %}
+            <b>{{stexts}}</b>
         {% else %}
             {{i}}
         {% endif %}

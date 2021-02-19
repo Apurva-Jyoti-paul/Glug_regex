@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Texts
 from .forms import regforms
+
 import re
 
 
@@ -11,12 +12,14 @@ def search(request):
             text=m.save(commit=False)
             print(type(text.maintext),text.maintext)
             print(type(text.searchtext),text.searchtext)
-            text2=re.sub(text.searchtext,'@',text.maintext)
+            text2=re.sub(text.searchtext,';',text.maintext)
+            u=re.findall(text.searchtext,text.maintext)
+            stexts=u[0]
             l=[]
             k=''
             t=1
             for i in text2:
-                if i=='@':
+                if i==';':
                     l.append(k)
                     t=0
                     k=i
@@ -32,7 +35,7 @@ def search(request):
 
 
             print(text2)
-            return render(request,'regex.html',{'text':text,'text2':text2,'l':l})
+            return render(request,'regex.html',{'text':text,'text2':text2,'l':l,'stexts':stexts})
     else:
         m=regforms()
         return render(request,'input.html',{'m':m})
