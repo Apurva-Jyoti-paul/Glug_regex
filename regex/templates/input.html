@@ -1,0 +1,9 @@
+<form action="{% url 'mains' %}" method="POST" enctype="multipart/form-data">
+<label>Main Text:&nbsp;</label>
+{{ m.maintext }}
+<br>
+<label>Search Text:&nbsp;</label>
+{{ m.searchtext }}
+{% csrf_token %}
+<input type="submit" value="Search">
+</form>

@@ -1,0 +1,18 @@
+<p><h1 ALIGN='center'>REGEX:</h1></p>
+
+<p>
+    <h4>Main Text:</h4><br>
+    {{text.maintext}}
+    <h4>Search Text:</h4><br>
+    {{text.searchtext}}
+    <h4>Modified Text:</h4><br>
+    {% for i in l %}
+        {% if i == "@" %}
+            <b>{{text.searchtext}}</b>
+        {% else %}
+            {{i}}
+        {% endif %}
+    {% endfor %}
+    <br>
+
+</p>
