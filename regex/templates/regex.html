@@ -1,18 +1,44 @@
-<p><h1 ALIGN='center'>REGEX:</h1></p>
+<style>
+div.styla{
+  background-color: rgb(24, 216, 24);
+  width: 750px;
+  border: 1px solid rgb(233, 236, 8);
+  padding: 5px;
+  margin: 20px;
+}
 
+body{
+    background-color: rgba(157, 255, 0, 0.473);
+}
+
+div.stylb{
+  background-color: rgb(107, 24, 216);
+  width: 100%;
+  border: 1px solid rgb(233, 236, 8);
+  padding: 5px;
+}
+</style>
 <p>
-    <h4>Main Text:</h4><br>
+    <div class="stylb">
+        <h1 ALIGN='center'>REGEX:</h1>
+    </div>
+    </p>
+<div align="center">
+<p align="center">
+    <div class="styla">
+    <h4><u>Main Text:</u></h4><br>
     {{text.maintext}}
-    <h4>Search Text:</h4><br>
-    {{text.searchtext}}
-    <h4>Modified Text:</h4><br>
+    </div>
+    <h4><u>Search Text:</u></h4><br>
+    <b style="background-color: rgba(187, 3, 3, 0.89);">{{text.searchtext}}</b>
+    <h4><u>Modified Text:</u></h4><br>
     {% for i in l %}
         {% if i == ";" %}
-            <b>{{stexts}}</b>
+            <b style="background-color: gold;">{{stexts}}</b>
         {% else %}
             {{i}}
         {% endif %}
     {% endfor %}
     <br>
-
+</div>
 </p>

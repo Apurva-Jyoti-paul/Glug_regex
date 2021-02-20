@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from .models import Texts
-from .forms import regforms
-
+from .forms import regforms,ocform
+from django.http import HttpResponse
+import PyPDF2
 import re
+import os
+
+
 
 
 def search(request):
@@ -14,7 +18,11 @@ def search(request):
             print(type(text.searchtext),text.searchtext)
             text2=re.sub(text.searchtext,';',text.maintext)
             u=re.findall(text.searchtext,text.maintext)
-            stexts=u[0]
+            
+            if u:
+                stexts=u[0]
+            else:
+                stexts=text.searchtext
             l=[]
             k=''
             t=1
@@ -41,3 +49,17 @@ def search(request):
         return render(request,'input.html',{'m':m})
 
 # Create your views here.
+
+
+def uppdf(request):
+    if request.method=='POST':
+        form=ocform(request.POST,request.FILES)
+        if form.is_valid():
+            inst=form.save(commit=False)
+            #
+            form.save()
+            return HttpResponse('File uploaded!')
+    else:
+        form=ocform()
+        return render(request,'ocinput.html',{'form':form})
+

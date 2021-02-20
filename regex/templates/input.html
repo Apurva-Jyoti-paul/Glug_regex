@@ -1,9 +1,13 @@
+<br><br><br><br> 
+
+<div align="center">
 <form action="{% url 'mains' %}" method="POST" enctype="multipart/form-data">
-<label>Main Text:&nbsp;</label>
-{{ m.maintext }}
+<label for="mt">Main Text:&nbsp;</label><br>
+{{ m.maintext }} 
 <br>
-<label>Search Text:&nbsp;</label>
+<label>Search Text:&nbsp;</label><br>
 {{ m.searchtext }}
 {% csrf_token %}
 <input type="submit" value="Search">
 </form>
+</div>
